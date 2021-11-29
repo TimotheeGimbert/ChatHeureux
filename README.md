@@ -1,24 +1,26 @@
-# README
+# CHALEUREUX
+Boutique de photographie de chat réalisée dans le cadre de la formation THP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Environnement
+Rails 6.1.4.1
+Ruby 2.7.4
 
-Things you may want to cover:
+## Création de l'application
 
-* Ruby version
+```
+yarn add bootstrap
+yarn add popper.js
+yarn add @popperjs/core
+yarn add @fortawesome/fontawesome-free
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Créer app/javascript/stylesheets/application.scss
+```css
+@import “bootstrap”;
+```
+Ajouter à app/javascript/packs/application.js
+```js
+import "bootstrap"
+import "stylesheets/application"
+import "@fortawesome/fontawesome-free/css/all.css";
+```
