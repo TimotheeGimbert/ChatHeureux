@@ -11,6 +11,8 @@
   </head>
 
   <body>
+    <%=render "partials/navbar"%>
     <%= yield %>
   </body>
+  <%= javascript_pack_tag '_links' %>
 </html>
