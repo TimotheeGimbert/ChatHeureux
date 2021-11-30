@@ -1,2 +1,7 @@
-<h1>Profiles#edit</h1>
-<p>Find me in app/views/profiles/edit.html.erb</p>
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <h1>Éditer votre profil</h1>
+  <%= link_to 'Voir', @profile, class:"btn btn-primary btn-sm" %>
+  <%= render 'form', profile: @profile %>
+</div>
+
+

@@ -1,14 +1,15 @@
 class ProfilesController < ApplicationController
+  before_action :set_profile, only: %i[ show edit update destroy ]
+
   def index
     @profiles = Profile.all
   end
 
   def show
-    
   end
 
   def new
-    @profile = Profile.create(user: current_user, city: City.first )
+    @profile = Profile.create(user: current_user)
     redirect_to edit_profile_path(@profile)
   end
 
