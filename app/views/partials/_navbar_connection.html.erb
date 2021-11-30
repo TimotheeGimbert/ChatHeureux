@@ -6,9 +6,9 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
         <%if current_user.profile != nil then%>
-          <li><%=link_to 'Profile', profile_path(id: current_user.profile.id), class:"dropdown-item" %></li>
+          <li><%=link_to 'Profil', profile_path(id: current_user.profile.id), class:"dropdown-item" %></li>
         <%else%>
-          <li><%=link_to 'Créer mon profile', new_profile_path, mehod: :get, class:"dropdown-item" %></li>
+          <li><%=link_to 'Créer mon profil', new_profile_path, mehod: :get, class:"dropdown-item" %></li>
         <%end%>
         <li><%=link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
       </ul>
@@ -18,7 +18,7 @@
   <ul class='navbar-nav'>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        CONNECTION
+        CONNEXION
       </a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
         <li><%=link_to 'Se connecter', new_user_session_path, mehod: :get , class:"dropdown-item" %></li>
