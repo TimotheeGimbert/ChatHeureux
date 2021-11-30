@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  validates :title, :desciption, :price, :image_url, presence:true
+  validates :title, :description, :price, :image_url, presence:true
   validates :price, numericality: {greater_than: 0 }
   
   has_many :join_table_item_carts
