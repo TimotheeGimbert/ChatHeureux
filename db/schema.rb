@@ -11,10 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 0) do
 =======
 ActiveRecord::Schema.define(version: 2021_11_29_165335) do
 >>>>>>> 1937fcd59356cbdd3e13212f41470a760d604e42
+=======
+ActiveRecord::Schema.define(version: 2021_11_29_173819) do
+>>>>>>> c13852bcc15fca84a74e0d34a34dee4797f3ffa4
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +77,20 @@ ActiveRecord::Schema.define(version: 2021_11_29_165335) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.string "address"
+    t.string "address_complement"
+    t.string "city"
+    t.string "zip_code"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -92,5 +110,9 @@ ActiveRecord::Schema.define(version: 2021_11_29_165335) do
   add_foreign_key "join_table_item_orders", "items"
   add_foreign_key "join_table_item_orders", "orders"
   add_foreign_key "orders", "users"
+<<<<<<< HEAD
 >>>>>>> 1937fcd59356cbdd3e13212f41470a760d604e42
+=======
+  add_foreign_key "profiles", "users"
+>>>>>>> c13852bcc15fca84a74e0d34a34dee4797f3ffa4
 end
