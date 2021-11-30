@@ -110,8 +110,7 @@ GEM
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.8)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
+    nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
@@ -218,7 +217,11 @@ GEM
     zeitwerk (2.5.1)
 
 PLATFORMS
+<<<<<<< HEAD
+  x86_64-darwin-20
+=======
   ruby
+>>>>>>> 30c1f99b8de422974292e90f919eb4fb4260fbcd
   x86_64-linux
 
 DEPENDENCIES
