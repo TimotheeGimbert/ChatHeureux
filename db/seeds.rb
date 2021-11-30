@@ -16,23 +16,28 @@ Item.destroy_all
 User.destroy_all
 
 10.times do 
-  User.create!(email: Faker::Internet.email, password: Faker::Lorem.characters(number: 12), is_admin?: false)
+  user = User.create!(email: Faker::Internet.email, password: Faker::Lorem.characters(number: 12), is_admin?: false)
+  puts user
 end
 
 20.times do
-  Item.create(title: Faker::Superhero.name, description: Faker::Lorem.paragraph_by_chars(number: 256), price: rand(0.1..10000.0), image_url: Faker::Avatar.image )
+  item = Item.create(title: Faker::Superhero.name, description: Faker::Lorem.paragraph_by_chars(number: 256), price: Faker::Number.decimal(l_digits: 3, r_digits: 2), image_url: Faker::Avatar.image )
+  puts item
 end
 
 10.times do
-  Category.create(name: Faker::Emotion.noun)
+  category = Category.create(name: Faker::Emotion.noun)
+  puts category
 end
 
 User.all.each do |user|
-  Cart.create(user: user)
+  cart = Cart.create(user: user)
+  puts cart
 end
 
 10.times do
-  Order.create(user: User.all.sample(1)[0], stripe_id: "stripe_id?", validation_date: rand(1.year.ago..50.weeks.from_now).to_date, price: rand(0.1..10000.0))
+  order = Order.create(user: User.all.sample(1)[0], stripe_id: "stripe_id?", validation_date: rand(1.year.ago..50.weeks.from_now).to_date, price: rand(0.1..10000.0))
+  puts order
 end
 
 Order.all.each do |order|
@@ -48,5 +53,6 @@ Cart.all.each do |cart|
 end
 
 User.all.each do |user|
-  Profile.create(user: user,  first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: Faker::PhoneNumber.phone_number, address: Faker::Address.street_address, address_complement: Faker::Address.secondary_address, zip_code: Faker::Address.zip_code, city: Faker::Address.city)
+  profile = Profile.create(user: user,  first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: Faker::PhoneNumber.phone_number, address: Faker::Address.street_address, address_complement: Faker::Address.secondary_address, zip_code: Faker::Address.zip_code, city: Faker::Address.city)
+  puts profile
 end
