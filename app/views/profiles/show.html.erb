@@ -1,17 +1,12 @@
 <%card = {
   header: "#{@profile.first_name} #{@profile.last_name}", 
   text: "
-    <b>Téléphone</b> <br>
-    #{@profile.phone_number} <br>
-    <b>Adresse</b>
-    #{@profile.adress}<br>
-    #{@profile.adress_complement}<br>
-    <b>Ville</b><br>
-    #{@profile.city}<br>
-    <b>Code postal</b>
-    #{@profile.zip_code}
+    <b>Téléphone</b> : #{@profile.phone_number} <br>
+    <b>Adresse</b> : #{@profile.adress}, #{@profile.adress_complement}<br>
+    <b>Ville</b> : #{@profile.city}<br>
+    <b>Code postal</b> : #{@profile.zip_code}
   ",
-  actions: [{label: "Éditer mon profil", path: edit_profile_path(@profile), type:"primary"}],
+  actions: [{label: "Éditer mon profil", path: edit_user_registration_path, type:"primary"}],
   footer: "Utilisateur actif depuis #{@profile.user.created_at}"
 }%>
 
