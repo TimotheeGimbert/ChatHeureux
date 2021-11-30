@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-
+  get 'pages/index'
+  get 'pages/presentation'
+  get 'pages/contact'
+  root 'pages#index'
+  resources :profiles
   get 'orders/show'
   get 'orders/new'
   get 'orders/create'
@@ -11,5 +15,4 @@ Rails.application.routes.draw do
   get 'items/update'
   get 'items/delete'
   devise_for :users
-  
 end
