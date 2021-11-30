@@ -1,2 +1,8 @@
 <h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+
+<% Item.all.each do |item| %>
+  <div> <%= item.title %> </div>
+  <div> <%= item.description %> </div>
+  <div> <%= item.price %> </div>
+  <div> <%= image_tag item.image_url %> </div>
+<% end %>
