@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panier</title>
+</head>
+<body>
+  <h1> Panier </h1>
+  <br/>
+<div class="container">
+    <h1>Mon panier</h1>
+    <br/>
+    <br/>
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Nom de produit</th>
+                        <th scope="col">Prix unitaire</th>
+                        <th scope="col">Prix selon quantité</th>
+                        <th scope="col"></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% total_price = [] %> <!--Crée un array vide-->
+                        <%  @items_in_cart.each do |item| %>
+                            <tr>
+                            <td><%= item.item.name %></td>
+                            <td><%= item.item.price %>€</td>
+                            <td><%= créer une ligne qui calcul le prix total %>€</td> 
+                            </tr>
+                        <% end %>
+                         <tr>
+                            <th scope="row"></th>
+                            <td></td>
+                            <td></td></td>
+                            <td></td>
+                            </tr>
+                            <tr>
+                            <th scope="row"></th>
+                            <td></td>
+                            <td class="font-weight-bold">Prix total:</td>
+                            <td><%= total_price.inject(0){|sum,x| sum + x }%>€</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+</body>
+</html>
