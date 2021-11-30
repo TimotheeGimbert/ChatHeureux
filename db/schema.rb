@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 2021_11_29_173819) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
-    t.string "adress"
-    t.string "adress_complement"
+    t.string "address"
+    t.string "address_complement"
     t.string "city"
     t.string "zip_code"
     t.bigint "user_id", null: false
