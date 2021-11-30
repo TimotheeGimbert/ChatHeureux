@@ -11,4 +11,5 @@ class User < ApplicationRecord
   
   has_many :orders
   has_one :profile
+  has_one :cart #user et cart on une relation N-1 
 end
