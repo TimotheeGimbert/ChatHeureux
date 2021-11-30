@@ -4,15 +4,15 @@
 
   <div class="form-inputs">
     <%= f.input :first_name, label:"Prénom" %>
-    <%= f.input :last_name %>
-    <%= f.input :phone_number %>
-    <%= f.input :adress %>
-    <%= f.input :adress_complement %>
-    <%= f.input :city %>
-    <%= f.input :zip_code %>
+    <%= f.input :last_name, label:"Nom" %>
+    <%= f.input :phone_number, label: "Téléphone" %>
+    <%= f.input :adress, label: "Adresse" %>
+    <%= f.input :adress_complement, label: "Complément d'adresse" %>
+    <%= f.input :city, label:"ville" %>
+    <%= f.input :zip_code, label: "Code postal" %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-actions d-flex justify-content-center mt-2">
+    <%= f.button :submit, class:"btn btn-primary btn-sm", value:"Mettre à jour" %>
   </div>
 <% end %>
