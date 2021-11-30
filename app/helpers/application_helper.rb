@@ -4,5 +4,5 @@ module ApplicationHelper
     if current_user != nil && current_user.cart == nil #si utilisateur connecté sans panier
       cart = Cart.create(user: current_user)
     end
-    
+  end    
 end
