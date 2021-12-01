@@ -12,6 +12,18 @@
         <%end%>
         <li><%=link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
       </ul>
+      <li class="nav-item">
+          <%=link_to 'Panier', cart_path(current_user.cart.id), class:'nav-link'%>
+          <% if @items_in_cart.count > 0 %> <!--Si il y a des articles dans mon panier-->
+          <% total_items_in_cart = [] 
+            @items_in_cart.each do |item|
+            total_items_in_cart << item #on ajoute les items dans un tableau
+            end %>
+          <span class="badge badge-pill badge-info"><%= total_items_in_cart.inject(0){|sum,x| sum + x}%></span> <!--calcul de la somme des items dans le tableau-->
+          <%else%>
+          <span>0</span> <!--Si pas d'articles-->
+          <%end%>
+      </li>
     </li>
   </ul>
 <%else%>

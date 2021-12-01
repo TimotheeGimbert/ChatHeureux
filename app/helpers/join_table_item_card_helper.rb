@@ -1,0 +1,2 @@
+module JoinTableItemCardHelper
+end
