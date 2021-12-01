@@ -15,6 +15,7 @@ before_action :nbr_of_items_in_cart
     else
       @items = Item.all
     end
+    
     @categories = Category.all
     
     @ajoutaupanier = JoinTableItemCart.new #création d'une nouvelle entrée dans la table de jointure
