@@ -59,3 +59,4 @@ gem "devise"
 gem "faker"
 gem "table_print"
 gem "simple_form"
+gem 'dotenv-rails', groups: [:development, :test]
