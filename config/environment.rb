@@ -9,8 +9,8 @@ ActionMailer::Base.smtp_settings =   {
   :port               => 465,
   :domain             => 'mail.communs.fr',
   :authentication     => :plain,
-  :user_name          => ENV['TEST_COMMUNS_login'],
-  :password           => ENV['TEST_COMMUNS_pwd'],
+  :user_name          => ENV['mail_login'],
+  :password           => ENV['mail_pwd'],
   tls:                  true,
   enable_starttls_auto: true,
   :openssl_verify_mode  => 'none'
