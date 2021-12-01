@@ -16,6 +16,20 @@ class JoinTableItemCartsController < ApplicationController
     end
   end
 
+  def destroy
+
+    if params[:all] == "true" 
+      items = JoinTableItemCart.where(item_id: params[:item_id], cart_id: params[:cart_id])
+      items.each do |item|
+        item.destroy()
+      end
+    else
+      item = JoinTableItemCart.where(item_id: params[:item_id], cart_id: params[:cart_id]).last
+      item.destroy()
+    end
+    redirect_to cart_path(id: params[:cart_id])
+  end
+
   private
   def parameters
     params.require(:join_table_item_carts).permit(:item_id, :card_id)
