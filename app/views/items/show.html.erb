@@ -6,7 +6,12 @@
     <div class="col-6 bg-info my-auto px-5 pt-5 mx-5">
       <h1 class="text-light text-center mb-3"> <%= @item.title %> </h1>
       <h4 class="mb-2 text-dark text-center"> <%= @item.price %> € </h4>
-      <%= link_to "Ajouter au panier", cart_path(current_user.cart.id), class: "btn btn-outline-light my-5 w-100" %> <!--Modification de la route de redirection pour le bouton Ajouter au panier pour qu'il nous redirige sur le panier utilisateur (vérification du bouton dans la console Rails ! ca fonctionne-->
+      <% if current_user %>
+        <%= link_to "Ajouter au panier", new_join_table_item_cart_path(cart_id: current_user.cart.id, item_id:  @item.id), method: :get, class: "btn btn-outline-light my-5 w-100" %> <!--Modification de la route de redirection pour le bouton Ajouter au panier pour qu'il nous redirige sur le panier utilisateur (vérification du bouton dans la console Rails ! ca fonctionne-->
+      <% else %>
+        <%= link_to "Se connecter pour ajouter au panier", new_user_session_path, class: "btn btn-outline-light my-5 w-100" %>
+      <% end %>
+
     </div>
     
   </div>
