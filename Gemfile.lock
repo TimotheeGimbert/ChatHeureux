@@ -87,6 +87,7 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.10.0)
+    execjs (2.8.1)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
     ffi (1.15.4)
@@ -196,6 +197,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    uglifier (4.2.0)
+      execjs (>= 0.3.0, < 3)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -241,6 +244,7 @@ DEPENDENCIES
   table_print
   turbolinks (~> 5)
   tzinfo-data
+  uglifier
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
