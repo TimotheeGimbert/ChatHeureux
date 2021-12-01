@@ -5,7 +5,11 @@
         <div class="d-flex justify-content-center align-items-center h-100">
           <div class="text-white">
             <h4 class="my-5">On chat-muse bien chez THP !</h4>
-            <%= link_to "Vendez vos catz collectors !", root_path, class: "btn btn-outline-light btn-lg mb-5" %> 
+            <% if current_user %>
+              <%= link_to "Vendez vos catz collectors !", root_path, class: "btn btn-outline-light btn-lg mb-5" %>
+            <% else %>
+              <%= link_to "Vendez vos catz collectors !", new_user_session_path, class: "btn btn-outline-light btn-lg mb-5" %>
+            <% end %>  
           </div>
         </div>
       </div>
