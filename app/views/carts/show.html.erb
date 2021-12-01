@@ -16,37 +16,31 @@
         <div class="row">
             <div class="col-lg-8 col-md-8">
                 <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">Quantité</th>
-                        <th scope="col">Nom de produit</th>
-                        <th scope="col">Prix unitaire</th>
-                        <th scope="col">Prix selon quantité</th>
-                        <th scope="col"></th>
+                    <head>
+                        <ul>
+                        <li scope="col">Quantité</li> <!--facultatif-->
+                        <li scope="col">Nom de produit</li>
+                        <li scope="col">Prix unitaire</li>
+                        <li scope="col">Prix selon quantité</li> <!--facultatif-->
+                        <li scope="col"></li>
 
-                        </tr>
-                    </thead>
+                        </ul>
+                    </head>
                     <tbody>
                         <% total_price = [] %> <!--Crée un array vide-->
-                        <%  @items_in_cart.each do |item| %>
-                            <tr>
-                            <td><%= item.item.name %></td>
-                            <td><%= item.item.price %>€</td>
-                            <td><%= créer une ligne qui calcul le prix total %>€</td> 
+                        <%  @items_in_cart.each do |item| %> <!--Pour chaque produit du panier on affiche le nom et le prix -->
+                            <!-- item.quantity facultatif -->
+                            <li><%= item.item.name %></li>
+                            <li><%= item.item.price %>€</li>
+                            <li><% total_price << item.item.price%>
+                            <!-- <%= prix_total_par_item = item.item.price*item.quantity %>€-->
+
                             </tr>
                         <% end %>
-                         <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td></td>
-                            <td></td>
-                            </tr>
-                            <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td class="font-weight-bold">Prix total:</td>
-                            <td><%= total_price.inject(0){|sum,x| sum + x }%>€</td>
-                            </tr>
+                         <ul>
+                            <li class="font-weight-bold">Prix total:</li>
+                            <li><%= total_price.inject(0){|sum,x| sum + x }%>€</li> <!--Fait la somme des prix dans notre tableau-->
+                        </ul>
                     </tbody>
                 </table>
             </div>
