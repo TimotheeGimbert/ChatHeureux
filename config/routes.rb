@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get 'items/update'
   get 'items/delete'
   devise_for :users
+  resources :cart
 end
