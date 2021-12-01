@@ -10,21 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 0) do
-=======
-ActiveRecord::Schema.define(version: 2021_11_29_165335) do
->>>>>>> 1937fcd59356cbdd3e13212f41470a760d604e42
-=======
 ActiveRecord::Schema.define(version: 2021_11_29_173819) do
->>>>>>> c13852bcc15fca84a74e0d34a34dee4797f3ffa4
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-=======
   create_table "carts", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -110,9 +100,5 @@ ActiveRecord::Schema.define(version: 2021_11_29_173819) do
   add_foreign_key "join_table_item_orders", "items"
   add_foreign_key "join_table_item_orders", "orders"
   add_foreign_key "orders", "users"
-<<<<<<< HEAD
->>>>>>> 1937fcd59356cbdd3e13212f41470a760d604e42
-=======
   add_foreign_key "profiles", "users"
->>>>>>> c13852bcc15fca84a74e0d34a34dee4797f3ffa4
 end

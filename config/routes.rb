@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show, :new, :create, :edit, :update, :delete]
 
   devise_for :users
+  resources :carts
 end
