@@ -2,7 +2,21 @@ class ItemsController < ApplicationController
 include ItemsHelper
 before_action :nbr_of_items_in_cart
   def index
-    @items = Item.all
+    if params[:category_id] != nil then
+       @items = []
+       Item.all.each do |item|
+        item.categories.each do |category|
+          if category.id == params[:category_id].to_i then
+            @items.push(item)
+          end
+        end
+       end 
+       @items
+    else
+      @items = Item.all
+    end
+    @categories = Category.all
+    
     @ajoutaupanier = JoinTableItemCart.new #création d'une nouvelle entrée dans la table de jointure
   end
 

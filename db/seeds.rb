@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+JoinTableItemCategory.destroy_all
 Profile.destroy_all
 JoinTableItemCart.destroy_all
 JoinTableItemOrder.destroy_all
@@ -28,6 +29,12 @@ end
 10.times do
   category = Category.create(name: Faker::Emotion.noun)
   puts category
+end
+
+Item.all.each do |item|
+  Category.all.sample(rand(1..3)).each do |category|
+    JoinTableItemCategory.create(item: item, category: category)
+  end
 end
 
 User.all.each do |user|
