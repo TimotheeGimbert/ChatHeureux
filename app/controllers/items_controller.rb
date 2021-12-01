@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 include ItemsHelper
+before_action :nbr_of_items_in_cart
   def index
     @items = Item.all
     @ajoutaupanier = JoinTableItemCart.new #création d'une nouvelle entrée dans la table de jointure
