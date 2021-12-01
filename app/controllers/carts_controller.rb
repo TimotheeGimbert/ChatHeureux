@@ -8,11 +8,15 @@ include CartsHelper
 
   def show
     cart = Cart.find_by(id: params[:id])
+    # cart_price = cart.items
+    cart_items = cart.items.uniq
+    cart_items_quantity = []
+    cart_items.each do |item|
+      quantity = cart.items.where(id: item.id).length
+      cart_items_quantity.push({item: item, quantity: quantity})
+    end
     @items_in_cart = []
-    @items_in_cart = cart.items
-    puts "#"*30
-    p cart
-    puts "#"*30
+    @items_in_cart = cart_items_quantity
   end
 
   def create
