@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
-
+include ItemsHelper
   def index
     @items = Item.all
+    @ajoutaupanier = JoinTableItemCart.new #création d'une nouvelle entrée dans la table de jointure
   end
 
   def show

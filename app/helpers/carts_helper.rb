@@ -10,5 +10,6 @@ module CartsHelper
   def only_current_cart
     if current_user != nil && current_user.cart.id != params[:id].to_i #si l'utilisateur est connecté et que l'id du panier ne correspond pas a l'id de son panier
       return redirect_to cart_path(current_user.cart.id) #il est redirigé vers son panier 
-    end 
+    end
+  end  
 end
