@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panier</title>
-</head>
-<body>
   <h1> Panier </h1>
   <br/>
 <div class="container">
@@ -30,10 +21,9 @@
                         <% total_price = [] %> <!--Crée un array vide-->
                         <%  @items_in_cart.each do |item| %> <!--Pour chaque produit du panier on affiche le nom et le prix -->
                             <!-- item.quantity facultatif -->
-                            <li><%= item.item.name %></li>
-                            <li><%= item.item.price %>€</li>
-                            <li><% total_price << item.item.price%>
-                            <!-- <%= prix_total_par_item = item.item.price*item.quantity %>€-->
+                            <li><%= item.title %></li>
+                            <li><%= item.price %>€</li>
+                            <li><% total_price << item.price%>
 
                             </tr>
                         <% end %>
@@ -46,5 +36,3 @@
             </div>
         </div>
 </div>
-</body>
-</html>

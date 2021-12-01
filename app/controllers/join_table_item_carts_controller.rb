@@ -1,8 +1,10 @@
-class JoinTableItemCardController < ApplicationController
+class JoinTableItemCartsController < ApplicationController
 
   def new
-    @cart = Cart.find_by(id: params[:cart_id])
-    @item_in_cart = JoinTableItemCart.new
+    cart_id = params[:cart_id]
+    item_id = params[:item_id]
+    JoinTableItemCart.create(cart_id: cart_id, item_id: item_id)
+    redirect_to cart_path(id: cart_id)
   end
 
   def create
