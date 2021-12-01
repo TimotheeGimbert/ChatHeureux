@@ -10,5 +10,5 @@ class User < ApplicationRecord
   format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
   
   has_many :orders
-  has_one :profile
+  has_one :profile, dependent: :destroy 
 end
