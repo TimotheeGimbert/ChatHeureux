@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+
   def index
     @items = Item.all.sample(3)
     if current_user && !current_user.profile
@@ -13,7 +14,10 @@ class PagesController < ApplicationController
   end
 
   def administration
-    @users = User.all
-
+    if current_user.is_admin != true
+      redirect_to root_path
+    else
+      @users = User.all.sort
+    end
   end
 end

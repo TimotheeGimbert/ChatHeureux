@@ -1,11 +1,13 @@
-<div class="d-flex flex-column">
+<div class="d-flex flex-column bg-white p-5">
 <%@users.each do |user|%>
   <%= simple_form_for(user, url: user_path(id: user.id), html: { method: :put }) do |f| %>
     <div class="d-flex flex-row">
       <%=user.id%>
       <%= f.input :email%>
-      <%= f.input :is_admin, collection: ([false, true]), prompt: "Select your age", selected: 21%>
-      <%= f.button :submit, "Mettre à jour", class:"btn btn-primary btn-sm" %>
+      <%= f.input :is_admin, collection: ([false, true]), selected: user.is_admin%>
+      <div class="d-flex flex-column justify-content-center">
+        <%= f.button :submit, "Mettre à jour", class:"btn btn-primary btn-sm" %>
+      </div>
     </div>
   <%end%>
 <%end%>
