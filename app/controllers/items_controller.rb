@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 include ItemsHelper
 before_action :nbr_of_items_in_cart
+before_action :is_admin?, only: [:new, :create, :edit, :update, :destroy]
   def index
     if params[:category_id] != nil then
        @items = []
@@ -17,8 +18,6 @@ before_action :nbr_of_items_in_cart
     end
     
     @categories = Category.all
-    
-    @ajoutaupanier = JoinTableItemCart.new #création d'une nouvelle entrée dans la table de jointure
   end
 
   def show

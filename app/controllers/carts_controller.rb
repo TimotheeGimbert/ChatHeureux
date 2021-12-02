@@ -12,9 +12,11 @@ include CartsHelper
     cart.items.each{|item| @cart_amount += item.price}
     cart_items = cart.items.uniq
     cart_items_quantity = []
+    @cart_items_count = 0
     cart_items.each do |item|
       quantity = cart.items.where(id: item.id).length
       cart_items_quantity.push({item: item, quantity: quantity})
+      @cart_items_count += quantity
     end
     @items_in_cart = []
     @items_in_cart = cart_items_quantity

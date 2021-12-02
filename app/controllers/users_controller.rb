@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :update_params, only: [:update]
+  before_action :is_admin?
 
     def show
       @user = User.find(current_user.id) #on affiche le profil de la personne connecté (current user)
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
 
     def update
       user = User.find_by(id: params[:id])
-      user.is_admin = params[:is_admin]
+      user.is_admin = params[:user][:is_admin]
       user.save
       redirect_back fallback_location: pages_administration_path
     end

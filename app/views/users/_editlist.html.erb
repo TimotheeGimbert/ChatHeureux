@@ -1,14 +1,16 @@
-<div class="d-flex flex-column bg-white p-5">
+<div class="d-flex flex-column bg-white p-5"  style="min-width:60%">
 <%@users.each do |user|%>
   <%= simple_form_for(user, url: user_path(id: user.id), html: { method: :put }) do |f| %>
-    <div class="d-flex flex-row">
-      <%=user.id%>
+    <div class="d-flex flex-row justify-content-around align-items-center">
+      <h5><%=user.id%></h5>
+      <h5><%=user.profile.first_name + " "+ user.profile.last_name%></h5>
       <%= f.input :email%>
       <%= f.input :is_admin, collection: ([false, true]), selected: user.is_admin%>
       <div class="d-flex flex-column justify-content-center">
         <%= f.button :submit, "Mettre à jour", class:"btn btn-primary btn-sm" %>
       </div>
     </div>
+    <hr>
   <%end%>
 <%end%>
 </div>
