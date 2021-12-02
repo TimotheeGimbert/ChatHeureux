@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'join_table_item_orders/show'
   get 'item_pictures/create'
   get 'pages/index'
   get 'pages/presentation'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   resources :users
   resources :carts
   resources :join_table_item_carts
+  resources :join_table_item_orders
   resources :items, only: [:show] do
     resources :item_pictures, only: [:create]
   end

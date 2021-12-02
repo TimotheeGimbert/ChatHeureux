@@ -5,18 +5,17 @@
       <%= link_to "#{current}", pages_administration_path(panel: current), class:"btn btn-success category-link" %>
     <%end%>
   </div>
-  <div class="d-flex">
+  <div class="d-flex flex-row"  style="width:100%">
     <%if params[:panel] == "UTILISATEUR"%>
       <%=render 'users/editlist'%>
-    <%end%>
-    <%if params[:panel] == "ITEMS"%>
+    <%elsif params[:panel] == "ITEMS"%>
       <%=render 'items/editlist'%>
-    <%end%>
-    <%if params[:panel] == "CATÉGORIES"%>
+    <%elsif params[:panel] == "CATÉGORIES"%>
       <%=render 'categories/editlist'%>
-    <%end%>
-    <%if params[:panel] == "COMMANDES"%>
+    <%elsif params[:panel] == "COMMANDES"%>
       <%=render 'orders/editlist'%>
+    <%elsif %>
+      <%=render 'users/editlist'%>
     <%end%>
   </div>
 </div>

@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :is_admin?, only: [:administration]
 
   def index
     @items = Item.all.sample(3)
@@ -14,13 +15,9 @@ class PagesController < ApplicationController
   end
 
   def administration
-    if current_user.is_admin != true
-      redirect_to root_path
-    else
       @users = User.all.sort
       @items = Item.all.sort
       @categories = Category.all.sort
       @orders = Order.all.sort
-    end
   end
 end
