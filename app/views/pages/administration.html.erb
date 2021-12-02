@@ -9,5 +9,14 @@
     <%if params[:panel] == "UTILISATEUR"%>
       <%=render 'users/editlist'%>
     <%end%>
+    <%if params[:panel] == "ITEMS"%>
+      <%=render 'items/editlist'%>
+    <%end%>
+    <%if params[:panel] == "CATÉGORIES"%>
+      <%=render 'categories/editlist'%>
+    <%end%>
+    <%if params[:panel] == "COMMANDES"%>
+      <%=render 'orders/editlist'%>
+    <%end%>
   </div>
 </div>

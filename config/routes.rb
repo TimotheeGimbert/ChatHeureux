@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :items, only: [:show] do
     resources :item_pictures, only: [:create]
   end
+  resources :categories, only: [:new, :create, :update]
 
   # get '*path' => redirect('/404.html')
 end

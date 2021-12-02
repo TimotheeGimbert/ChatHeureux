@@ -18,6 +18,9 @@ class PagesController < ApplicationController
       redirect_to root_path
     else
       @users = User.all.sort
+      @items = Item.all.sort
+      @categories = Category.all.sort
+      @orders = Order.all.sort
     end
   end
 end

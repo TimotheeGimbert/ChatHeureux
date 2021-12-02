@@ -1,0 +1,13 @@
+<div class="d-flex flex-column bg-white p-5">
+<%@categories.each do |category|%>
+  <%= simple_form_for(category, url: category_path(id: category.id), html: { method: :put }) do |f| %>
+    <div class="d-flex flex-row">
+      <%=category.id%>
+      <%= f.input :name%>
+      <div class="d-flex flex-column justify-content-center">
+        <%= f.button :submit, "Mettre à jour", class:"btn btn-primary btn-sm" %>
+      </div>
+    </div>
+  <%end%>
+<%end%>
+</div>

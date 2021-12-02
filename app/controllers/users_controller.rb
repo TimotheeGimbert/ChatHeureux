@@ -11,7 +11,14 @@ class UsersController < ApplicationController
 
     def update
       user = User.find_by(id: params[:id])
-      user.is_admin = params[:is_admin]
+      if is_admin?()
+        user.is_admin = params[:is_admin]
+      end
+      puts "#"*30
+      puts params
+      puts "#"*30
+      puts user
+      puts "#"*30
       user.save
       redirect_back fallback_location: pages_administration_path
     end
