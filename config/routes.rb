@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :carts
   resources :join_table_item_carts
+
+  get '*path' => redirect('/404.html')
 end
