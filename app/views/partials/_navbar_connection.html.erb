@@ -10,10 +10,14 @@
         <%else%>
           <li><%=link_to 'Créer mon profil', new_profile_path, mehod: :get, class:"dropdown-item" %></li>
         <%end%>
+        <%if current_user.is_admin == true %>
+          
+        <%end%>
+        <li><%=link_to 'Administration', pages_administration_path, mehod: :get, class:"dropdown-item" %></li>
         <li><%=link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
       </ul>
       <li class="d-flex nav-item">
-        <% if current_user %>
+        <% if current_user && current_user.is_admin !=true %>
           <%= link_to 'Panier', cart_path(id: current_user.cart.id), class:'nav-link'%>
           <div><span class="badge rounded-pill bg-primary"><%=cart_items%></span></div>
         <% end %>

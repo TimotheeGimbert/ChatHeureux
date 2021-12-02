@@ -11,4 +11,9 @@ class PagesController < ApplicationController
 
   def contact
   end
+
+  def administration
+    @users = User.all
+
+  end
 end
