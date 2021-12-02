@@ -1,5 +1,9 @@
 <h1>Votre commande est passée</h1>
-
+<div class="d-flex justify-content-evenly flex-wrap">
 <% @order.items.each do |item|%>
-  <%=render "items/item.html.erb", item: item%>
+  <div class="d-flex flex-column bg-white" style="width: 250px">
+    <%=render "items/item.html.erb", item: item%>
+  </div>
 <%end%>
+</div>
+
