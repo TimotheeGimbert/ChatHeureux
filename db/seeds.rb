@@ -35,7 +35,7 @@ Item.all.each do |item|
   Category.all.sample(rand(1..3)).each do |category|
     JoinTableItemCategory.create(item: item, category: category)
   end
-  image_file = File.open(Rails.root.join('app/assets/images/kitten_item.jpg'))
+  image_file = Down.download('https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2021%2F04%2F13%2Fkitten-pounce-158906394-2000.jpg&q=85')
   item.item_picture.attach(io: image_file, filename: "file.jpg")
 end
 
