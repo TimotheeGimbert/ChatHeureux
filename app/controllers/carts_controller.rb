@@ -8,7 +8,8 @@ include CartsHelper
 
   def show
     cart = Cart.find_by(id: params[:id])
-    # cart_price = cart.items
+    @cart_amount = 0
+    cart.items.each{|item| @cart_amount += item.price}
     cart_items = cart.items.uniq
     cart_items_quantity = []
     cart_items.each do |item|
@@ -17,6 +18,7 @@ include CartsHelper
     end
     @items_in_cart = []
     @items_in_cart = cart_items_quantity
+    @items = Item.all.sample(3)
   end
 
   def create

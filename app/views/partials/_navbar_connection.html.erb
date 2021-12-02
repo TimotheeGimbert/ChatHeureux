@@ -12,9 +12,10 @@
         <%end%>
         <li><%=link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
       </ul>
-      <li class="nav-item">
+      <li class="d-flex nav-item">
         <% if current_user %>
           <%= link_to 'Panier', cart_path(id: current_user.cart.id), class:'nav-link'%>
+          <div><span class="badge rounded-pill bg-primary"><%=cart_items%></span></div>
         <% end %>
       </li>
     </li>

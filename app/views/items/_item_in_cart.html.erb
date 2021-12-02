@@ -1,11 +1,31 @@
-<h5 class="card-title text-dark text-center mb-3"> <%= item.title %> </h5>
-<%= image_tag item.image_url, width:"250px" %>
-<h6>Description :</h6>
-<h6 class="card-subtitle mb-2 text-muted text-center"> <%= item.description %> </h6>
-<hr>
-<h6 class="card-subtitle mb-2 text-success text-center"> <%= item.price %> € </h6>
-Quantité = <%=quantity%>
-
-<%= link_to "Ajouter", new_join_table_item_cart_path(cart_id: current_user.cart.id, item_id:  item.id), method: :get, class: "btn btn-outline-primary  w-100" %>
-<%= link_to "Supprimer", join_table_item_cart_path(cart_id: current_user.cart.id, item_id:  item.id), method: :delete, class: "btn btn-outline-danger  w-100" %>
-<%= link_to "Supprimer tout", join_table_item_cart_path(cart_id: current_user.cart.id, item_id:  item.id, all: true), method: :delete, class: "btn btn-outline-danger  w-100" %>
+<div class="d-flex m-2">
+  <h5 class="card-title text-dark text-center mb-3"> <%= item.title %> </h5>
+</div>
+<%= image_tag item.image_url, width:"100px" %>
+<div class="d-flex flex-column text-dark text-center m-2"  style="width:30%">
+  <h6> Description</h6>
+  <p class="text-muted" style="font-size:x-small"> <%= item.description %> € </p>
+</div>
+<div class="d-flex flex-column text-dark text-center m-2">
+  <h6> Prix unitaire</h6>
+  <p> <%= item.price %> € </p>
+</div>
+<div class="d-flex flex-column text-dark text-center m-2"">
+  <h6> Quantité</h6>
+  <p> <%=quantity%></p>
+</div>
+<div class="d-flex flex-column text-dark text-center m-2"">
+  <h6> Quantité</h6>
+  <p> <%=item.price * quantity%> €</p>
+</div>
+<div class="d-flex flex-column m-2">
+  <%= link_to new_join_table_item_cart_path(cart_id: current_user.cart.id, item_id:  item.id), method: :get, class: "btn btn-outline-primary  w-100" do %>
+    <i class="fas fa-plus"></i>
+  <% end %>
+  <%= link_to join_table_item_cart_path(cart_id: current_user.cart.id, item_id:  item.id), method: :delete, class: "btn btn-outline-danger  w-100" do %>
+    <i class="fas fa-minus"></i>
+  <% end %>  
+  <%= link_to join_table_item_cart_path(cart_id: current_user.cart.id, item_id:  item.id, all: true), method: :delete, class: "btn btn-outline-danger  w-100" do %>
+    <i class="fas fa-trash"></i>
+  <% end %> 
+</div>

@@ -1,10 +1,22 @@
-<div class="d-flex flex-column align-items-center">
-  <h2>Mon panier</h2>
-  <div class="d-flex">
+<div class="d-flex justify-content-center mt-5">
+  <h2 class="text-secondary">Mon panier</h2> 
+</div>
+<div class="d-flex justify-content-evenly mt-5">
+  <div class="d-flex flex-column" style="width:60%">
       <%  @items_in_cart.each do |item| %> <!--Pour chaque produit du panier on affiche le nom et le prix -->
-        <div class="d-flex flex-column align-items-center" style="width:15%">
+        <div class="d-flex flex-row justify-content-evenly align-items-center shadow-lg bg-light text-light my-1 p-2" style="width: 100%;">
           <%= render 'items/item_in_cart', item: item[:item], quantity:item[:quantity]%>
         </div>
       <% end %>
   </div>
+  <div class="d-flex flex-column" style="width:30%">
+      <h3>Total panier</h3>
+      <h4>Montant total : <%=@cart_amount%> €</h4>
+  </div>
+</div>
+<div class="d-flex justify-content-center mt-5">
+<h3>Ajouter d'autres chats collectors à votre panier</h3>
+</div>
+<div class="d-flex justify-content-evenly">
+  <%=render "items/list", items: @items%>
 </div>
