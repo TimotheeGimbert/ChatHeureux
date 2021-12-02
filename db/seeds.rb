@@ -35,9 +35,8 @@ Item.all.each do |item|
   Category.all.sample(rand(1..3)).each do |category|
     JoinTableItemCategory.create(item: item, category: category)
   end
-  image_file = File.open("app/assets/images/kitten_item.jpg")
+  image_file = File.open(Rails.root.join('app/assets/images/kitten_item.jpg'))
   item.item_picture.attach(io: image_file, filename: "file.jpg")
-  image_file.rewind
 end
 
 User.all.each do |user|
