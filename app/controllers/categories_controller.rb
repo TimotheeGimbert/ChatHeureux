@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :is_admin?, only: [:update]
+  before_action :is_administrator?, only: [:update]
 
     def update
       

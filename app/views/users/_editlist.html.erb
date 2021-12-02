@@ -4,7 +4,7 @@
     <div class="d-flex flex-row">
       <%=user.id%>
       <%= f.input :email%>
-      <%= f.input :is_admin, collection: ([false, true]), selected: user.is_admin%>
+      <h5><%=user.is_admin%></h5><%= f.input :is_admin, collection: ([false, true]), selected: user.is_admin%>
       <div class="d-flex flex-column justify-content-center">
         <%= f.button :submit, "Mettre à jour", class:"btn btn-primary btn-sm" %>
       </div>
