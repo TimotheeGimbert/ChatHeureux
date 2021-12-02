@@ -46,8 +46,10 @@ before_action :nbr_of_items_in_cart
 
   end
 
-  def delete
-
+  def destroy
+    @item = Item.find(params[:item_id])
+    @item.destroy
+    redirect_to root_path
   end
 
 end

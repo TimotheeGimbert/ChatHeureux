@@ -10,6 +10,8 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.create(user: current_user)
+    @profile.user.is_admin = false
+    @profile.user.save
     redirect_to edit_profile_path(@profile)
   end
 

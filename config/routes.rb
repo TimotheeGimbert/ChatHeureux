@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root 'pages#index'
   resources :orders, only: [:show, :new, :create]
-  resources :items, only: [:index, :show, :new, :create, :edit, :update, :delete]
+  resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   devise_for :users
   resources :carts

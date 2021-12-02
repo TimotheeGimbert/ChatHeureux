@@ -12,6 +12,9 @@
       <h4 class="mb-2 text-dark text-center"> <%= @item.price %> € </h4>
       <% if current_user %>
         <%= link_to "Ajouter au panier", new_join_table_item_cart_path(cart_id: current_user.cart.id, item_id:  @item.id), method: :get, class: "btn btn-outline-light my-5 w-100" %>
+        <% if current_user.is_admin === true %>
+          <%= link_to "Supprimer définitivement", item_path(item_id: @item.id), method: :delete, class: "btn btn-outline-danger mb-5 w-100" %>
+        <% end %>
       <% else %>
         <%= link_to "Se connecter pour ajouter au panier", new_user_session_path, class: "btn btn-outline-light my-5 w-100" %>
       <% end %>
