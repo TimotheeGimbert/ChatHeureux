@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @orders = Order.where(user: current_user)
   end
 
   def new
