@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 ActiveStorage::Attachment.all.each { |attachment| attachment.purge }
+ActiveStorage::Blob.all.each { |blob| blob.purge }
 JoinTableItemCategory.destroy_all
 Profile.destroy_all
 JoinTableItemCart.destroy_all
