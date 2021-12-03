@@ -8,4 +8,5 @@ module ApplicationHelper
   def cart_items
     current_user.cart.items.length
   end
+
 end

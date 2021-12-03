@@ -17,6 +17,8 @@ Category.destroy_all
 Item.destroy_all
 User.destroy_all
 
+User.create(email: "test@test.com", password: "azerty", is_admin: true)
+
 10.times do 
   user = User.create!(email: Faker::Internet.email, password: Faker::Lorem.characters(number: 12), is_admin: false)
   puts user

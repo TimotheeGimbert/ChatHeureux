@@ -1,0 +1,21 @@
+<div class="d-flex flex-column align-items-center bg-white" >
+  <h2 class="m-5">ADMINISTRATION DU SITE</h2>
+  <div class="d-flex flex-row justify-content-evenly" style='width:100%'>
+    <%["UTILISATEUR","ITEMS",'CATÉGORIES','COMMANDES'].each do |current|%>
+      <%= link_to "#{current}", pages_administration_path(panel: current), class:"btn btn-success category-link" %>
+    <%end%>
+  </div>
+  <div class="d-flex flex-row"  style="width:100%">
+    <%if params[:panel] == "UTILISATEUR"%>
+      <%=render 'users/editlist'%>
+    <%elsif params[:panel] == "ITEMS"%>
+      <%=render 'items/editlist'%>
+    <%elsif params[:panel] == "CATÉGORIES"%>
+      <%=render 'categories/editlist'%>
+    <%elsif params[:panel] == "COMMANDES"%>
+      <%=render 'orders/editlist'%>
+    <%elsif %>
+      <%=render 'users/editlist'%>
+    <%end%>
+  </div>
+</div>
