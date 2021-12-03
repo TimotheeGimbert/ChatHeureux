@@ -35,8 +35,9 @@ Item.all.each do |item|
   Category.all.sample(rand(1..3)).each do |category|
     JoinTableItemCategory.create(item: item, category: category)
   end
-  image_file = URI.open('https://active-storage-final-project-thp2.s3.eu-west-3.amazonaws.com/assets_aws/kitten_item_aws.jpg')
-  item.item_picture.attach(io: image_file, filename: "file.jpg")
+  image_file = File.open('https://active-storage-final-project-thp2.s3.eu-west-3.amazonaws.com/assets_aws/kitten_item_aws.jpg')
+  item.item_picture = image_file
+  item.save!
 end
 
 User.all.each do |user|
