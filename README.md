@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-HEROKU LIVE TEMPORARY LINK : https://chaleureux33270.herokuapp.com/
-=======
 # HEROKU LIVE TEMPORARY LINK
-https://chaleureux33270.herokuapp.com/
->>>>>>> a0a493b8557b48992b573c2219c9eea26fee0d1e
+https://chatbytiques.herokuapp.com/
 
 # CHALEUREUX
 Boutique de photographie de chat réalisée dans le cadre de la formation THP
