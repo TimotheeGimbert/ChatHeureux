@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+ActiveStorage::Attachment.all.each { |attachment| attachment.purge }
+ActiveStorage::Blob.all.each { |blob| blob.purge }
 JoinTableItemCategory.destroy_all
 Profile.destroy_all
 JoinTableItemCart.destroy_all
@@ -37,8 +38,8 @@ Item.all.each do |item|
   Category.all.sample(rand(1..3)).each do |category|
     JoinTableItemCategory.create(item: item, category: category)
   end
-  item.item_picture.attach(io: File.open("app/assets/images/kitten_item.jpg"), filename: "file.png")
-
+  image_file = URI.open('https://active-storage-final-project-thp2.s3.eu-west-3.amazonaws.com/assets_aws/kitten_item_aws.jpg')
+  item.item_picture.attach(io: image_file, filename: "file.jpg")
 end
 
 User.all.each do |user|

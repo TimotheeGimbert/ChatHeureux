@@ -60,3 +60,6 @@ gem "faker"
 gem "table_print"
 gem "simple_form"
 gem 'dotenv-rails', groups: [:development, :test]
+gem "aws-sdk-s3", require: false
+gem "open-uri"
+gem "down"
