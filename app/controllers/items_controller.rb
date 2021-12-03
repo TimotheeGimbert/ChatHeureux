@@ -42,13 +42,26 @@ before_action :is_admin?, only: [:new, :create, :edit, :update, :destroy]
   end
 
   def update
-
+    puts "$"*100
+    @item = Item.find_by(id: params[:id])
+    puts params
+    new_title = params[:item][:title]
+    puts new_title
+    @item.title = new_title 
+    @item.save
+    redirect_back fallback_location: pages_administration_path
   end
 
   def destroy
     @item = Item.find(params[:item_id])
     @item.destroy
     redirect_to root_path
+  end
+
+  private 
+
+  def modify_title
+    params.require(:item).permit(:title)
   end
 
 end
